@@ -1,3 +1,5 @@
+import { LocalizedItem } from './common'
+
 export enum HamletType {
   HUMAN = 'human',
 }
@@ -13,10 +15,6 @@ export enum HamletSize {
   EXTRA_LARGE_CITY = 'extra_large',
   HUGE_CITY = 'huge',
   GARGANTUAN_CITY = 'gargantuan',
-}
-
-export type LocalizedHamlet = {
-  name?: string
 }
 
 /**
@@ -36,8 +34,8 @@ export type LocalizedHamlet = {
  * Poor control could cause revolts and increase crime in the area.
  */
 export type Hamlet = {
-  cz: LocalizedHamlet
-  en: LocalizedHamlet
+  cz: LocalizedItem
+  en: LocalizedItem
   type: HamletType
   size: HamletSize
   growth: number

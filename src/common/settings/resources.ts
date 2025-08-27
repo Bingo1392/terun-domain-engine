@@ -1,7 +1,8 @@
+import { LocalizedItem } from './common'
+
 export type LocalizedResource = {
-  name: string
   description: string
-}
+} & LocalizedItem
 
 export type Resource = {
   key: string

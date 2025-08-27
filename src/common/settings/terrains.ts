@@ -1,11 +1,9 @@
-export type LocalizedTerrain = {
-  name: string
-}
+import { LocalizedItem } from './common'
 
 export type Terrain = {
   key: string
-  cz: LocalizedTerrain
-  en: LocalizedTerrain
+  cz: LocalizedItem
+  en: LocalizedItem
 }
 
 /**

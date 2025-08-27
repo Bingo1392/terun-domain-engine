@@ -1,3 +1,5 @@
+import { LocalizedItem } from './common'
+
 export enum DomainActionTypes {
   STEWARDSHIP = 'stewardship',
   DIPLOMACY = 'diplomacy',
@@ -9,10 +11,9 @@ export enum DomainActionTypes {
 }
 
 export type LocalizedDomainAction = {
-  name: string
   type: string
   description: string
-}
+} & LocalizedItem
 
 export type DomainAction = {
   key: string

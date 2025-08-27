@@ -1,10 +1,8 @@
-export type LocalizedDomain = {
-  name: string
-}
+import { LocalizedItem } from './common'
 
 export type Domain = {
-  cz: LocalizedDomain
-  en: LocalizedDomain
+  cz: LocalizedItem
+  en: LocalizedItem
   stewardship: number
   diplomacy: number
   trade: number
