@@ -1,5 +1,34 @@
 import { LocalizedItem } from './common'
 
+/**
+ * HY is a shortened form of Human per Year. It means raw resource a Human needs per Year.
+ */
+export enum RawResources {
+  GRAIN = 'grain',
+  FISH = 'fish',
+  PASTURE_PRODUCTS = 'pasture_products',
+  GOLD = 'gold',
+  SILVER = 'silver',
+  IRON = 'iron',
+  LEAD = 'lead',
+  TIN = 'tin',
+  COPPER = 'copper',
+  EMERET = 'emeret',
+  ADAK = 'adak',
+  PALAMANTIN = 'palamantin',
+  JEWELSTONES = 'jewelstones',
+  ALMAZIT = 'almazit',
+  KALAZNAT = 'kazalnat',
+  ATERIST = 'aterist',
+  DERYL = 'deryl',
+  YRIS = 'yris',
+  KURYN = 'kuryn',
+  ZALTAR = 'zaltar',
+  LEPTERYN = 'lepteryn',
+  PERITYN = 'perityn',
+  URYST = 'uryst',
+}
+
 export type LocalizedResource = {
   description: string
 } & LocalizedItem
@@ -8,6 +37,16 @@ export type Resource = {
   key: string
   cz: LocalizedResource
   en: LocalizedResource
+  spawnRate?: number
+  kilogramsPerOneGoldenCoin?: number
+  goldenCoinsPerOneKilogram?: number
+  maxYearAmountInHY?: number
+  humansSatisfiedPerYearPerTon?: number
+  rawResource: RawResources
+  level1Production?: number
+  level2Production?: number
+  level3Production?: number
+  level4Production?: number
 }
 
 export const resources: Resource[] = [
@@ -23,6 +62,14 @@ export const resources: Resource[] = [
       description:
         'A main source of food for humans. This type of source is possible to build, but not every type of terrain is suitable for it.',
     },
+    kilogramsPerOneGoldenCoin: 50_000,
+    maxYearAmountInHY: 12_000,
+    humansSatisfiedPerYearPerTon: 4,
+    rawResource: RawResources.GRAIN,
+    level1Production: 100_000,
+    level2Production: 300_000,
+    level3Production: 1_000_000,
+    level4Production: 3_000_000,
   },
   {
     key: 'fishery',
@@ -36,30 +83,50 @@ export const resources: Resource[] = [
       description:
         'Food source for humans. This type of food source can be built, but not every location is suitable for it.',
     },
+    kilogramsPerOneGoldenCoin: 0,
+    maxYearAmountInHY: 150,
+    humansSatisfiedPerYearPerTon: 1.5,
+    rawResource: RawResources.FISH,
+    level1Production: 100_000,
   },
   {
     key: 'pastures',
     cz: {
       name: 'Pastviny',
-      description: 'Zdroj potravy pro lidi.',
+      description:
+        'Zdroj potravy pro lidi. Jedná se o mix mléka, mléčných výrobků (asi 3/4 produkce), masa a masných výrobků (asi 1/4 produkce).',
     },
     en: {
       name: 'Pastures',
       description: 'A source of food for humans.',
     },
+    kilogramsPerOneGoldenCoin: 0,
+    maxYearAmountInHY: 1_000,
+    humansSatisfiedPerYearPerTon: 2.5,
+    rawResource: RawResources.PASTURE_PRODUCTS,
+    level1Production: 40_000,
+    level2Production: 130_000,
+    level3Production: 400_000,
   },
   {
     key: 'gold',
     cz: {
       name: 'Zlato',
       description:
-        'Ušlechtilý kov užívaný ve šperkařství. Užívá se též jako univerzální platidlo a to hlavně pro platby ve vysokých částkách. Počítá se ve zlatých prutech, kde jeden zlatý prut stojí asi 250 zlatých mincí a váží přibližně 10 kilogramů.',
+        'Ušlechtilý kov užívaný ve šperkařství. Užívá se též jako univerzální platidlo a to hlavně pro platby ve vysokých částkách. Počítá se ve zlatých mincích, kde z jednoho kilogramu ryzího zlata lze vyrazit 20 zlatých mincí.',
     },
     en: {
       name: 'Gold',
       description:
-        'A precious metal used in jewelry. It is also used as a universal currency, especially for payments in large amounts. It is measured in gold bars, where one gold bar costs about 250 gold coins and weighs approximately 10 kilograms.',
+        'A precious metal used in jewelry. It is also used as a universal currency, especially for payments in large amounts. It is measured in gold coins, where 20 gold coins can be minted from one kilogram of pure gold.',
     },
+    spawnRate: 1,
+    goldenCoinsPerOneKilogram: 20,
+    kilogramsPerOneGoldenCoin: 0.05,
+    rawResource: RawResources.GOLD,
+    level1Production: 50,
+    level2Production: 150,
+    level3Production: 500,
   },
   {
     key: 'silver',
@@ -73,39 +140,12 @@ export const resources: Resource[] = [
       description:
         'A precious metal used in jewelry and, due to its availability, for the production of standard circulating currency.',
     },
-  },
-  {
-    key: 'iron',
-    cz: {
-      name: 'Železo',
-      description: 'Kov užívaný k výrobě zbraní a nástrojů.',
-    },
-    en: {
-      name: 'Iron',
-      description: 'Metal used to make weapons and tools.',
-    },
-  },
-  {
-    key: 'lead',
-    cz: {
-      name: 'Olovo',
-      description: 'Kov užívaný k výrobě nástrojů a v instalatérství.',
-    },
-    en: {
-      name: 'Lead',
-      description: 'A metal used for making tools and in plumbing.',
-    },
-  },
-  {
-    key: 'tin',
-    cz: {
-      name: 'Cín',
-      description: 'Kov užívaný v různých slitinách.',
-    },
-    en: {
-      name: 'Tin',
-      description: 'A metal used in various alloys.',
-    },
+    spawnRate: 2.5,
+    kilogramsPerOneGoldenCoin: 5,
+    rawResource: RawResources.SILVER,
+    level1Production: 2_000,
+    level2Production: 6_000,
+    level3Production: 20_000,
   },
   {
     key: 'copper',
@@ -119,6 +159,67 @@ export const resources: Resource[] = [
       description:
         'A metal used in various alloys and to produce standard circulating currency.',
     },
+    spawnRate: 5,
+    kilogramsPerOneGoldenCoin: 500,
+    rawResource: RawResources.COPPER,
+    level1Production: 35_000,
+    level2Production: 110_000,
+    level3Production: 330_000,
+    level4Production: 1_000_000,
+  },
+  {
+    key: 'tin',
+    cz: {
+      name: 'Cín',
+      description: 'Kov užívaný v různých slitinách.',
+    },
+    en: {
+      name: 'Tin',
+      description: 'A metal used in various alloys.',
+    },
+    spawnRate: 4,
+    kilogramsPerOneGoldenCoin: 400,
+    rawResource: RawResources.TIN,
+    level1Production: 35_000,
+    level2Production: 110_000,
+    level3Production: 330_000,
+    level4Production: 1_000_000,
+  },
+  {
+    key: 'lead',
+    cz: {
+      name: 'Olovo',
+      description: 'Kov užívaný k výrobě nástrojů a v instalatérství.',
+    },
+    en: {
+      name: 'Lead',
+      description: 'A metal used for making tools and in plumbing.',
+    },
+    spawnRate: 8.5,
+    kilogramsPerOneGoldenCoin: 850,
+    rawResource: RawResources.LEAD,
+    level1Production: 35_000,
+    level2Production: 110_000,
+    level3Production: 330_000,
+    level4Production: 1_000_000,
+  },
+  {
+    key: 'iron',
+    cz: {
+      name: 'Železo',
+      description: 'Kov užívaný k výrobě zbraní a nástrojů.',
+    },
+    en: {
+      name: 'Iron',
+      description: 'Metal used to make weapons and tools.',
+    },
+    spawnRate: 15,
+    kilogramsPerOneGoldenCoin: 1500,
+    rawResource: RawResources.IRON,
+    level1Production: 35_000,
+    level2Production: 110_000,
+    level3Production: 330_000,
+    level4Production: 1_000_000,
   },
   {
     key: 'emeret',
@@ -131,6 +232,12 @@ export const resources: Resource[] = [
       name: 'Emeret',
       description: 'A soft metal used for the production of magic items.',
     },
+    spawnRate: 0.5,
+    goldenCoinsPerOneKilogram: 40,
+    rawResource: RawResources.EMERET,
+    level1Production: 50,
+    level2Production: 150,
+    level3Production: 500,
   },
   {
     key: 'adak',
@@ -144,6 +251,12 @@ export const resources: Resource[] = [
       description:
         'A hard metal used for the production of weapons and armor. It repels magic and can be found on bottoms of fresh water lakes - it grows as a part of the shell of Adak mussel.',
     },
+    spawnRate: 0.5,
+    goldenCoinsPerOneKilogram: 10,
+    rawResource: RawResources.ADAK,
+    level1Production: 200,
+    level2Production: 600,
+    level3Production: 2000,
   },
   {
     key: 'palamantin',
@@ -157,17 +270,12 @@ export const resources: Resource[] = [
       description:
         'A stone that can be easily changed its properties, such as color, speed in the air, etc. It is a very desired stone for building palaces and honorable buildings.',
     },
-  },
-  {
-    key: 'antracit',
-    cz: {
-      name: 'Antracit',
-      description: 'Vzácný druh černého uhlí s vyšší výhřevností.',
-    },
-    en: {
-      name: 'Antracit',
-      description: 'A rare type of hard coal with a higher calorific value.',
-    },
+    spawnRate: 1,
+    kilogramsPerOneGoldenCoin: 50,
+    rawResource: RawResources.PALAMANTIN,
+    level1Production: 50_000,
+    level2Production: 150_000,
+    level3Production: 500_000,
   },
   {
     key: 'jewelstones',
@@ -181,6 +289,12 @@ export const resources: Resource[] = [
       description:
         'Precious stones used in jewelry. They can be easily exchanged and used as currency.',
     },
+    spawnRate: 0.5,
+    goldenCoinsPerOneKilogram: 80,
+    rawResource: RawResources.JEWELSTONES,
+    level1Production: 25,
+    level2Production: 80,
+    level3Production: 250,
   },
   {
     key: 'almazit',
@@ -194,6 +308,12 @@ export const resources: Resource[] = [
       description:
         'Pink crystal. Almazite supports telekinetic abilities, which means controlling the movement of inanimate objects from a distance. Almazite can be worked with safely and without any danger.',
     },
+    spawnRate: 1,
+    goldenCoinsPerOneKilogram: 40,
+    rawResource: RawResources.ALMAZIT,
+    level1Production: 25,
+    level2Production: 80,
+    level3Production: 250,
   },
   {
     key: 'kazalnat',
@@ -207,6 +327,12 @@ export const resources: Resource[] = [
       description:
         'A brown crystal that grants the ability to change the temperature of an object, air, or water. It must be handled with great care, as biting off a piece of Calaznath causes a wave of random temperature changes. This can be life-threatening. Therefore, in Calaznath mines, there is a relatively high probability of injury from fire or cold.',
     },
+    spawnRate: 1,
+    goldenCoinsPerOneKilogram: 40,
+    rawResource: RawResources.KALAZNAT,
+    level1Production: 25,
+    level2Production: 80,
+    level3Production: 250,
   },
   {
     key: 'aterist',
@@ -220,6 +346,12 @@ export const resources: Resource[] = [
       description:
         'A light blue crystal that grants telepathic abilities. Telepathy is the ability to communicate at a distance. It is safe to work with Aterist.',
     },
+    spawnRate: 1,
+    goldenCoinsPerOneKilogram: 40,
+    rawResource: RawResources.ATERIST,
+    level1Production: 25,
+    level2Production: 80,
+    level3Production: 250,
   },
   {
     key: 'deryl',
@@ -233,6 +365,12 @@ export const resources: Resource[] = [
       description:
         "This is a purple crystal that grants psychotronic abilities. This means the ability to influence the minds of others. Working with Deryl is dangerous. Any look at Deryl causes the creature to feel good and wants to look at him all the time. Deryl plays whatever she wants to happen to her on her victim. She lives in a constant dream. She forgets all her troubles, acquaintances, loves and even eating, drinking and sleeping. Within a few days, the victim dies of exhaustion and dehydration. Deryl's victim wants to look at him all the time and does not want to let others stop her from doing so. This can make her dangerous to others.",
     },
+    spawnRate: 1,
+    goldenCoinsPerOneKilogram: 40,
+    rawResource: RawResources.DERYL,
+    level1Production: 25,
+    level2Production: 80,
+    level3Production: 250,
   },
   {
     key: 'yris',
@@ -246,6 +384,12 @@ export const resources: Resource[] = [
       description:
         'Yris is a yellow crystal that can be used to influence the senses such as smell, sight, touch, pain, and more. This ability is called Sensitiva. Working with Yris is usually not life-threatening, but if handled carelessly, it can cause unpleasant anomalies such as loss of smell, increased sensitivity to external sensations, or sensitivity to light. After some time, these effects usually subside.',
     },
+    spawnRate: 1,
+    goldenCoinsPerOneKilogram: 40,
+    rawResource: RawResources.YRIS,
+    level1Production: 25,
+    level2Production: 80,
+    level3Production: 250,
   },
   {
     key: 'kuryn',
@@ -259,6 +403,12 @@ export const resources: Resource[] = [
       description:
         'Kuryn crystal of green color. Kuryn grants the ability of physiognomy, which has power over physical properties or appearance. Working with Kuryn is completely safe and does not cause any dangerous side effects.',
     },
+    spawnRate: 1,
+    goldenCoinsPerOneKilogram: 40,
+    rawResource: RawResources.KURYN,
+    level1Production: 25,
+    level2Production: 80,
+    level3Production: 250,
   },
   {
     key: 'zaltar',
@@ -272,6 +422,12 @@ export const resources: Resource[] = [
       description:
         'Zaltar is a white crystal that allows you to manipulate light. This ability is called photonics. Working with Zaltar is safe. Careless handling can only cause flashes of light.',
     },
+    spawnRate: 1,
+    goldenCoinsPerOneKilogram: 40,
+    rawResource: RawResources.ZALTAR,
+    level1Production: 25,
+    level2Production: 80,
+    level3Production: 250,
   },
   {
     key: 'lepteryn',
@@ -285,6 +441,12 @@ export const resources: Resource[] = [
       description:
         'Lepteryn is a very dangerous dark blue crystal. Its ability is to trap a soul inside the crystal. This ability is called Duchotika. Once a living being touches the Lepteryn, the crystal begins to slowly absorb its soul. Complete absorption can take several rounds to several days. It depends on the size of the Lepteryn and the intelligence of the individual. Once the Lepteryn manages to absorb a soul, the entire being is magically absorbed - the being disappears. If the Lepteryn is full, it no longer absorbs other beings. When looking at the sun through the crystal, it is possible to see the silhouette of the trapped soul inside. If the Lepteryn is destroyed, the trapped soul is freed and materializes near the destroyed Lepteryn.',
     },
+    spawnRate: 1,
+    goldenCoinsPerOneKilogram: 40,
+    rawResource: RawResources.LEPTERYN,
+    level1Production: 25,
+    level2Production: 80,
+    level3Production: 250,
   },
   {
     key: 'perityn',
@@ -298,6 +460,12 @@ export const resources: Resource[] = [
       description:
         'Perithyne is a rare and powerful black crystal that can manipulate space-time. The science behind this ability is called Teloconomy. In the wrong hands, perithyne can wreak havoc. Working with it can also be very dangerous, as it can create a space-time anomaly that either displaces its surroundings completely or completely changes the speed of time. One of the worst is aging, dying, and turning to dust within a few turns.',
     },
+    spawnRate: 1,
+    goldenCoinsPerOneKilogram: 40,
+    rawResource: RawResources.PERITYN,
+    level1Production: 25,
+    level2Production: 80,
+    level3Production: 250,
   },
   {
     key: 'uryst',
@@ -311,5 +479,11 @@ export const resources: Resource[] = [
       description:
         'Uryst is a red crystal that can generate huge amounts of pure energy. The science that deals with this phenomenon is called silomatics. Working with uryst can be dangerous, like with other crystals. In this case, an accidental explosion is possible, destroying everything around.',
     },
+    spawnRate: 1,
+    goldenCoinsPerOneKilogram: 40,
+    rawResource: RawResources.URYST,
+    level1Production: 25,
+    level2Production: 80,
+    level3Production: 250,
   },
 ]

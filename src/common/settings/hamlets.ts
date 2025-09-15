@@ -12,7 +12,6 @@ export enum HamletSize {
   SMALL_CITY = 'small',
   MEDIUM_CITY = 'medium',
   LARGE_CITY = 'large',
-  EXTRA_LARGE_CITY = 'extra_large',
   HUGE_CITY = 'huge',
   GARGANTUAN_CITY = 'gargantuan',
 }
