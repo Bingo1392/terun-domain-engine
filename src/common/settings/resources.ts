@@ -37,11 +37,11 @@ export enum ResourceCategory {
 }
 
 export enum DemandType {
-  ESSENTIAL = 'essential', // základní potřeby (jídlo)
-  INDUSTRIAL = 'industrial', // výroba, crafting
-  LUXURY = 'luxury', // šperkařství, prestiž
-  MAGICAL = 'magical', // magie, enchanting
-  MILITARY = 'military', // zbraně, zbroje
+  ESSENTIAL = 'essential', // basic needs (food)
+  INDUSTRIAL = 'industrial', // manufacturing, crafting
+  LUXURY = 'luxury', // jewelry, prestige
+  MAGICAL = 'magical', // magic, enchanting
+  MILITARY = 'military', // weapons, armor
 }
 
 export enum MarketVolatility {
@@ -57,11 +57,11 @@ export type LocalizedResource = {
 
 export type DemandProfile = {
   type: DemandType
-  baseIntensity: number // 0.1-10.0, základní síla poptávky
-  populationElasticity: number // jak moc roste poptávka s populací
-  wealthElasticity: number // jak moc roste poptávka s bohatstvím
+  baseIntensity: number // 0.1-10.0, baseline demand strength
+  populationElasticity: number // how much demand grows with population
+  wealthElasticity: number // how much demand grows with wealth
   seasonalModifier?: {
-    // sezónní změny poptávky
+    // seasonal demand changes
     spring: number
     summer: number
     autumn: number
@@ -70,24 +70,24 @@ export type DemandProfile = {
 }
 
 export type ProductionConstraints = {
-  minWorkers: number // minimální počet pracovníků
-  maxWorkers: number // maximální počet pracovníků
-  workerEfficiency: number // produkce na pracovníka
-  terrainRequirements?: string[] // požadavky na terén
-  climateRequirements?: string[] // požadavky na klima
-  riskFactor: number // 0-1, riziko nehod/úmrtí při těžbě
-  maintenanceCost: number // náklady na údržbu za rok (v golden coins)
+  minWorkers: number // minimum number of workers
+  maxWorkers: number // maximum number of workers
+  workerEfficiency: number // production per worker
+  terrainRequirements?: string[] // terrain requirements
+  climateRequirements?: string[] // climate requirements
+  riskFactor: number // 0-1, risk of accidents/fatalities during extraction
+  maintenanceCost: number // annual maintenance cost (in golden coins)
 }
 
 export type MarketDynamics = {
   volatility: MarketVolatility
-  basePrice: number // základní cena za kg
-  priceFloor: number // minimální cena (náklady + min. zisk)
-  priceCeiling?: number // maximální cena (pro regulované zboží)
-  tradable: boolean // lze obchodovat mezi regiony?
-  storable: boolean // lze skladovat? (ovlivňuje volatilitu)
-  substitutes?: RawResources[] // substituty (snižují cenu)
-  complements?: RawResources[] // komplementy (zvyšují poptávku)
+  basePrice: number // base price per kg
+  priceFloor: number // minimum price (costs + min. profit)
+  priceCeiling?: number // maximum price (for regulated goods)
+  tradable: boolean // tradable between regions?
+  storable: boolean // storable? (affects volatility)
+  substitutes?: RawResources[] // substitutes (reduce price)
+  complements?: RawResources[] // complements (increase demand)
 }
 
 export type Resource = {
@@ -95,18 +95,18 @@ export type Resource = {
   cz: LocalizedResource
   en: LocalizedResource
 
-  // Základní vlastnosti
+  // Basic properties
   rawResource: RawResources
   category: ResourceCategory
 
-  // Produkce
+  // Production
   production: ProductionConstraints
 
-  // Ekonomika
+  // Economy
   demand: DemandProfile
   market: MarketDynamics
 
-  // Legacy parametry pro zpětnou kompatibilitu
+  // Legacy parameters for backward compatibility
   spawnRate?: number
   kilogramsPerOneGoldenCoin?: number
   goldenCoinsPerOneKilogram?: number
@@ -137,31 +137,31 @@ export const resources: Resource[] = [
     production: {
       minWorkers: 50,
       maxWorkers: 1000,
-      workerEfficiency: 3000, // kg na pracovníka za rok
+      workerEfficiency: 3000, // kg per worker per year
       terrainRequirements: ['plains', 'river_valley'],
       climateRequirements: ['temperate', 'continental'],
-      riskFactor: 0.01, // velmi bezpečné
+      riskFactor: 0.01, // very safe
       maintenanceCost: 100,
     },
 
     demand: {
       type: DemandType.ESSENTIAL,
       baseIntensity: 8.0,
-      populationElasticity: 1.0, // roste lineárně s populací
-      wealthElasticity: 0.2, // bohatší lidé nejedí víc obilí
+      populationElasticity: 1.0, // grows linearly with population
+      wealthElasticity: 0.2, // wealthier people don't eat more grain
       seasonalModifier: {
         spring: 0.9,
         summer: 0.8,
-        autumn: 1.2, // sklizeň
+        autumn: 1.2, // harvest
         winter: 1.1,
       },
     },
 
     market: {
       volatility: MarketVolatility.MODERATE,
-      basePrice: 0.1, // 10kg za 1 zlatou - realističtější
+      basePrice: 0.1, // 10 kg for 1 gold coin - more realistic
       priceFloor: 0.05,
-      priceCeiling: 0.2, // regulovaná potravina
+      priceCeiling: 0.2, // regulated food
       tradable: true,
       storable: true,
       substitutes: [RawResources.FISH, RawResources.PASTURE_PRODUCTS],
@@ -195,9 +195,9 @@ export const resources: Resource[] = [
     production: {
       minWorkers: 10,
       maxWorkers: 200,
-      workerEfficiency: 0.5, // kg na pracovníka za rok
+      workerEfficiency: 0.5, // kg per worker per year
       terrainRequirements: ['mountains', 'hills'],
-      riskFactor: 0.15, // nebezpečné důlní práce
+      riskFactor: 0.15, // hazardous mining work
       maintenanceCost: 500,
     },
 
@@ -205,11 +205,11 @@ export const resources: Resource[] = [
       type: DemandType.LUXURY,
       baseIntensity: 3.0,
       populationElasticity: 0.3,
-      wealthElasticity: 2.0, // bohatší dramaticky zvyšují poptávku
+      wealthElasticity: 2.0, // the wealthy dramatically increase demand
     },
 
     market: {
-      volatility: MarketVolatility.STABLE, // zlatý standard
+      volatility: MarketVolatility.STABLE, // gold standard
       basePrice: 20,
       priceFloor: 18,
       tradable: true,
@@ -243,25 +243,25 @@ export const resources: Resource[] = [
 
     production: {
       minWorkers: 5,
-      maxWorkers: 20, // malé týmy kvůli nebezpečí
-      workerEfficiency: 2, // kg na pracovníka za rok
-      riskFactor: 0.8, // extrémně nebezpečné!
-      maintenanceCost: 2000, // vysoké náklady na bezpečnost
+      maxWorkers: 20, // small teams due to danger
+      workerEfficiency: 2, // kg per worker per year
+      riskFactor: 0.8, // extremely dangerous!
+      maintenanceCost: 2000, // high security costs
     },
 
     demand: {
       type: DemandType.MAGICAL,
-      baseIntensity: 0.5, // velmi niche trh
+      baseIntensity: 0.5, // very niche market
       populationElasticity: 0.1,
       wealthElasticity: 1.5,
     },
 
     market: {
       volatility: MarketVolatility.EXTREME,
-      basePrice: 60, // vyšší než ostatní krystaly kvůli riziku
+      basePrice: 60, // higher than other crystals due to risk
       priceFloor: 40,
-      tradable: false, // pravděpodobně zakázané/regulované
-      storable: false, // nebezpečné skladovat
+      tradable: false, // probably banned/regulated
+      storable: false, // dangerous to store
     },
 
     // Legacy
@@ -291,24 +291,24 @@ export const resources: Resource[] = [
       minWorkers: 10,
       maxWorkers: 50,
       workerEfficiency: 1.5,
-      riskFactor: 0.4, // riziko výbuchu
+      riskFactor: 0.4, // risk of explosion
       maintenanceCost: 1500,
     },
 
     demand: {
       type: DemandType.MAGICAL,
-      baseIntensity: 2.0, // vysoká poptávka za energii
+      baseIntensity: 2.0, // high demand for energy
       populationElasticity: 0.5,
       wealthElasticity: 1.8,
     },
 
     market: {
       volatility: MarketVolatility.HIGH,
-      basePrice: 80, // nejvyšší cena mezi krystaly
+      basePrice: 80, // highest price among crystals
       priceFloor: 50,
       tradable: true,
-      storable: false, // nestabilní
-      complements: [RawResources.EMERET], // pro magické předměty
+      storable: false, // unstable
+      complements: [RawResources.EMERET], // for magical items
     },
 
     // Legacy
@@ -337,9 +337,9 @@ export const resources: Resource[] = [
     production: {
       minWorkers: 20,
       maxWorkers: 300,
-      workerEfficiency: 500, // kg na pracovníka za rok
+      workerEfficiency: 500, // kg per worker per year
       terrainRequirements: ['coast', 'lake', 'river'],
-      riskFactor: 0.05, // riziko utopení
+      riskFactor: 0.05, // risk of drowning
       maintenanceCost: 200,
     },
 
@@ -347,22 +347,22 @@ export const resources: Resource[] = [
       type: DemandType.ESSENTIAL,
       baseIntensity: 4.0,
       populationElasticity: 1.0,
-      wealthElasticity: 0.5, // bohatší preferují ryby
+      wealthElasticity: 0.5, // the wealthy prefer fish
       seasonalModifier: {
-        spring: 1.2, // jarní rybolov
+        spring: 1.2, // spring fishing
         summer: 1.3,
         autumn: 0.9,
-        winter: 0.6, // zmrzlé vodní plochy
+        winter: 0.6, // frozen water surfaces
       },
     },
 
     market: {
-      volatility: MarketVolatility.HIGH, // závislé na počasí
-      basePrice: 0.15, // 6-7kg za 1 zlatou
+      volatility: MarketVolatility.HIGH, // weather-dependent
+      basePrice: 0.15, // 6–7 kg for 1 gold coin
       priceFloor: 0.08,
       priceCeiling: 0.3,
       tradable: true,
-      storable: false, // rychle se kazí
+      storable: false, // spoils quickly
       substitutes: [RawResources.GRAIN, RawResources.PASTURE_PRODUCTS],
     },
 
@@ -390,7 +390,7 @@ export const resources: Resource[] = [
     production: {
       minWorkers: 30,
       maxWorkers: 500,
-      workerEfficiency: 200, // kg na pracovníka za rok
+      workerEfficiency: 200, // kg per worker per year
       terrainRequirements: ['grassland', 'hills'],
       climateRequirements: ['temperate', 'continental'],
       riskFactor: 0.02,
@@ -401,9 +401,9 @@ export const resources: Resource[] = [
       type: DemandType.ESSENTIAL,
       baseIntensity: 5.0,
       populationElasticity: 1.0,
-      wealthElasticity: 1.2, // luxusnější potravina
+      wealthElasticity: 1.2, // more luxurious food
       seasonalModifier: {
-        spring: 1.1, // mláďata
+        spring: 1.1, // offspring
         summer: 1.2,
         autumn: 0.9,
         winter: 0.8,
@@ -412,11 +412,11 @@ export const resources: Resource[] = [
 
     market: {
       volatility: MarketVolatility.MODERATE,
-      basePrice: 0.12, // 8kg za 1 zlatou
+      basePrice: 0.12, // 8 kg for 1 gold coin
       priceFloor: 0.08,
       priceCeiling: 0.25,
       tradable: true,
-      storable: false, // mléko a maso se kazí
+      storable: false, // milk and meat spoil
       substitutes: [RawResources.GRAIN, RawResources.FISH],
     },
 
@@ -447,7 +447,7 @@ export const resources: Resource[] = [
     production: {
       minWorkers: 15,
       maxWorkers: 300,
-      workerEfficiency: 10, // kg na pracovníka za rok
+      workerEfficiency: 10, // kg per worker per year
       terrainRequirements: ['mountains', 'hills'],
       riskFactor: 0.12,
       maintenanceCost: 300,
@@ -462,7 +462,7 @@ export const resources: Resource[] = [
 
     market: {
       volatility: MarketVolatility.MODERATE,
-      basePrice: 0.67, // 1.5kg za 1 zlatou (poměr 13:1)
+      basePrice: 0.67, // 1.5kg for 1 gold coin (ratio 13:1)
       priceFloor: 0.5,
       tradable: true,
       storable: true,
@@ -493,7 +493,7 @@ export const resources: Resource[] = [
     production: {
       minWorkers: 20,
       maxWorkers: 500,
-      workerEfficiency: 100, // kg na pracovníka za rok
+      workerEfficiency: 100, // kg per worker per year
       terrainRequirements: ['mountains', 'hills'],
       riskFactor: 0.1,
       maintenanceCost: 400,
@@ -502,17 +502,17 @@ export const resources: Resource[] = [
     demand: {
       type: DemandType.INDUSTRIAL,
       baseIntensity: 6.0,
-      populationElasticity: 1.2, // více lidí = více nástrojů
+      populationElasticity: 1.2, // more people = more tools
       wealthElasticity: 0.8,
     },
 
     market: {
       volatility: MarketVolatility.MODERATE,
-      basePrice: 0.003, // 330kg za 1 zlatou (realističtější)
+      basePrice: 0.003, // 330kg per one gold coin
       priceFloor: 0.002,
       tradable: true,
       storable: true,
-      complements: [RawResources.TIN, RawResources.COPPER], // pro slitiny
+      complements: [RawResources.TIN, RawResources.COPPER], // for alloys
     },
 
     // Legacy
@@ -557,7 +557,7 @@ export const resources: Resource[] = [
 
     market: {
       volatility: MarketVolatility.MODERATE,
-      basePrice: 0.002, // 500kg za 1 zlatou
+      basePrice: 0.002, // 500kg per 1 gold coin
       priceFloor: 0.0015,
       tradable: true,
       storable: true,
@@ -604,7 +604,7 @@ export const resources: Resource[] = [
 
     market: {
       volatility: MarketVolatility.MODERATE,
-      basePrice: 0.0025, // 400kg za 1 zlatou
+      basePrice: 0.0025, // 400kg per 1 gold coin
       priceFloor: 0.002,
       tradable: true,
       storable: true,
@@ -651,7 +651,7 @@ export const resources: Resource[] = [
 
     market: {
       volatility: MarketVolatility.STABLE,
-      basePrice: 0.0012, // 850kg za 1 zlatou
+      basePrice: 0.0012, // 850kg per 1 gold coin
       priceFloor: 0.001,
       tradable: true,
       storable: true,
@@ -685,7 +685,7 @@ export const resources: Resource[] = [
       maxWorkers: 100,
       workerEfficiency: 8,
       terrainRequirements: ['volcanic', 'mountains'],
-      riskFactor: 0.2, // sopečné oblasti
+      riskFactor: 0.2, // volcanic areas
       maintenanceCost: 800,
     },
 
@@ -693,7 +693,7 @@ export const resources: Resource[] = [
       type: DemandType.MAGICAL,
       baseIntensity: 2.0,
       populationElasticity: 0.3,
-      wealthElasticity: 2.5, // luxusní magické předměty
+      wealthElasticity: 2.5, // luxury magical items
     },
 
     market: {
@@ -702,7 +702,7 @@ export const resources: Resource[] = [
       priceFloor: 30,
       tradable: true,
       storable: true,
-      complements: [RawResources.URYST], // společně pro magie
+      complements: [RawResources.URYST],
     },
 
     // Legacy
@@ -733,7 +733,7 @@ export const resources: Resource[] = [
       maxWorkers: 200,
       workerEfficiency: 12,
       terrainRequirements: ['lake_freshwater'],
-      riskFactor: 0.08, // potápění
+      riskFactor: 0.08, // diving
       maintenanceCost: 600,
     },
 
@@ -741,7 +741,7 @@ export const resources: Resource[] = [
       type: DemandType.MILITARY,
       baseIntensity: 3.0,
       populationElasticity: 0.5,
-      wealthElasticity: 1.8, // vojenské zakázky
+      wealthElasticity: 1.8, // military contracts
     },
 
     market: {
@@ -1170,10 +1170,10 @@ export const resources: Resource[] = [
 
     market: {
       volatility: MarketVolatility.EXTREME,
-      basePrice: 150, // nejvyšší cena
+      basePrice: 150, // highest price
       priceFloor: 100,
-      tradable: false, // pravděpodobně zakázané
-      storable: false, // extrémně nebezpečné
+      tradable: false, // probably banned
+      storable: false, // extremely dangerous
     },
 
     // Legacy
@@ -1205,28 +1205,28 @@ export const resources: Resource[] = [
       workerEfficiency: 1.2,
       terrainRequirements: ['mountains', 'cave', 'void_touched'],
       climateRequirements: ['arctic', 'underground'],
-      riskFactor: 0.95, // extrémně nebezpečné - časoprostorové anomálie
-      maintenanceCost: 5000, // nejvyšší náklady kvůli ochranným opatřením
+      riskFactor: 0.95, // extremely dangerous - space-time anomalies
+      maintenanceCost: 5000, // highest costs due to protective measures
     },
 
     demand: {
       type: DemandType.MAGICAL,
-      baseIntensity: 0.2, // velmi specifická poptávka
+      baseIntensity: 0.2, // very specific demand
       populationElasticity: 0.05,
-      wealthElasticity: 3.0, // pouze ti nejbohatší si mohou dovolit experimentovat
+      wealthElasticity: 3.0, // only the wealthiest can afford to experiment
     },
 
     market: {
       volatility: MarketVolatility.EXTREME,
-      basePrice: 120, // nejvyšší cena ze všech krystalů
+      basePrice: 120, // highest price of all crystals
       priceFloor: 80,
-      tradable: false, // pravděpodobně zakázané k obchodování
-      storable: false, // extrémně nestabilní - časoprostorové anomálie
-      complements: [RawResources.URYST, RawResources.DERYL], // pro komplexní časoprostorovou magii
+      tradable: false, // probably banned from trading
+      storable: false, // extremely unstable - space-time anomalies
+      complements: [RawResources.URYST, RawResources.DERYL], // for complex space-time magic
     },
 
     // Legacy
-    spawnRate: 0.5, // nejrůznější spawn rate
+    spawnRate: 0.5, // varied spawn rate
     goldenCoinsPerOneKilogram: 120,
     kilogramsPerOneGoldenCoin: 0.0083,
     level1Production: 8,
