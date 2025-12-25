@@ -56,3 +56,5 @@ Tento dokument sleduje postup při definování herních mechanik.
 - Přidáno: DOMAINS.md - typy domén, atributy, akce, vztahy
 - Přidáno: WARFARE.md - vojenský systém, jednotky, bitvy, obléhání
 - Přidáno: CHARACTERS.md - systém postav, vlastnosti, dynastie
+- Rozšířeno: RESOURCES.md - doplněny herní atributy (výtěžnost, riziko, ceny, sezónní modifikátory)
+- Rozšířeno: TERRAIN.md - doplněny herní atributy (pohyb, obrana, kolonizace, modifikátory produkce)
