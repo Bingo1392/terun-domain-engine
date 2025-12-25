@@ -21,6 +21,7 @@ Tento dokument sleduje postup při definování herních mechanik.
 - [x] **EVENTS.md** - Náhodné události, rozhodnutí, příběhy
 - [x] **TIME.md** - Časový systém, roční období, tahy
 - [x] **SIMULATION.md** - Jak engine počítá jednotlivé kroky simulace
+- [x] **GAME_FORMULAS.md** - Kompletní vzorce a konstanty pro implementaci (nový dokument)
 
 ### Dokončené fáze
 
@@ -76,3 +77,4 @@ Tento dokument sleduje postup při definování herních mechanik.
 - Přidáno: EVENTS.md - systém událostí, rozhodnutí, řetězové události, modifikátory
 - Přidáno: TIME.md - kalendář, roční období, sezónní modifikátory, herní tahy
 - Přidáno: SIMULATION.md - architektura enginu, simulační cyklus, subsystémy
+- Přidáno: GAME_FORMULAS.md - kompletní vzorce, konstanty a příklady výpočtů pro implementaci simulace
