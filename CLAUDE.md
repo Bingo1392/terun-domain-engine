@@ -38,6 +38,7 @@ This is a NestJS application using TypeScript. The codebase is in early developm
 - `src/` - Application source code
 - `src/common/settings/` - Game configuration data (types and static data)
 - `test/` - E2E tests
+- `DOCS/` - Game design documentation in Czech (terrain types, resources, game mechanics)
 
 ### Game Domain Model
 
