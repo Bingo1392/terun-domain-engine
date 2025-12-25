@@ -16,7 +16,7 @@ Ovládají konkrétní území na mapě.
 | Království | Suverénní stát | 50-200 hexů |
 | Císařství | Nadstátní útvar | 200+ hexů |
 
-### Neterioriální domény
+### Neteritoriální domény
 
 Působí napříč územími bez přímé kontroly nad hexy.
 
@@ -165,34 +165,36 @@ Univerzální měna pro všechny akce.
 
 ### Vliv (Influence)
 
-Politický kapitál pro diplomatické akce.
+Politický kapitál a reputace domény. Slouží jako "měna" pro diplomatické akce a zároveň jako ukazatel celkové prestiže.
 
 **Získávání:**
-- Diplomatické úspěchy (+1-5 za úspěšnou akci)
-- Vojenská vítězství (+2-10 podle rozsahu)
-- Náboženská podpora (+1-3 za akci)
-- Kontrola nad důležitými místy
+- Diplomatické úspěchy: +1 až +5 za akci
+- Vojenská vítězství: +5 až +20 podle rozsahu
+- Náboženská podpora: +1 až +3 za akci
+- Kontrola nad důležitými místy: +1 až +5
+- Honosné stavby: +5 až +15 jednorázově
+- Patronát umění a učenců: +1 až +3 za rok
 
 **Využití:**
-- Prosazení nároků
-- Uzavírání aliancí
-- Ovlivňování voleb
-- Blokování nepřátelských akcí
+- Prosazení nároků: 10-50 vlivu
+- Uzavírání aliancí: 10-30 vlivu
+- Ovlivňování voleb: 5-20 vlivu
+- Blokování nepřátelských akcí: 5-15 vlivu
+- Dynastické sňatky: 10-30 vlivu
 
-### Prestiž (Prestige)
+**Pasivní efekty podle úrovně vlivu:**
 
-Dlouhodobá reputace domény.
+| Vliv | Úroveň | Efekt |
+|------|--------|-------|
+| 0-24 | Bezvýznamný | -10% diplomacie |
+| 25-49 | Nízký | Bez efektu |
+| 50-99 | Střední | +5% diplomacie |
+| 100-199 | Vysoký | +10% diplomacie, přitahuje vazaly |
+| 200+ | Prestižní | +20% diplomacie, +legitimita, přitahuje schopné postavy |
 
-**Získávání:**
-- Velká vítězství
-- Honosné stavby
-- Patronát umění
-- Historické úspěchy dynastie
-
-**Využití:**
-- Modifikátor pro diplomacii
-- Přitahuje schopné vazaly
-- Zvyšuje legitimitu
+**Rozpad vlivu:**
+- Vliv nad 50 klesá o 5% ročně (reputace se musí udržovat)
+- Velké prohry, skandály nebo zrady mohou způsobit okamžitý propad
 
 ## Vztahy mezi doménami
 

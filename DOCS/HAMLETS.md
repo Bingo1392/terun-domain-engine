@@ -6,17 +6,17 @@ Osady reprezentují populační centra na mapě. Každá osada má svou velikost
 
 Osady se dělí do 9 kategorií podle populace:
 
-| Velikost | Český název | Populace | Popis |
-|----------|-------------|----------|-------|
-| wilderness | Divočina | 0 | Neosídlená oblast |
+| Velikost | Český název | Populace | Popis                          |
+|----------|-------------|----------|--------------------------------|
+| wilderness | Divočina | 0 | Neosídlená oblast              |
 | poor_village | Chudá vesnice | ~50 | Pár chatrčí, samozásobitelství |
-| village | Vesnice | ~150 | Běžná vesnice s návsí |
-| prosperous_village | Prosperující vesnice | ~500 | Bohatá vesnice, možná tržiště |
-| small_city | Malé město | ~1 500 | Hradby, trh, řemeslníci |
-| medium_city | Střední město | ~5 000 | Cechy, katedrála, pevnost |
-| large_city | Velké město | ~15 000 | Regionální centrum |
-| huge_city | Obrovské město | ~45 000 | Hlavní město království |
-| gargantuan_city | Gigantické město | ~150 000 | Metropole, div světa |
+| village | Vesnice | ~150 | Běžná vesnice s návsí          |
+| prosperous_village | Prosperující vesnice | ~500 | Bohatá vesnice, možná tržiště  |
+| small_city | Malé město | ~1 500 | Hradby, trh, řemeslníci        |
+| medium_city | Střední město | ~5 000 | Cechy, chrám, pevnost          |
+| large_city | Velké město | ~15 000 | Regionální centrum             |
+| huge_city | Obrovské město | ~45 000 | Hlavní město království        |
+| gargantuan_city | Gigantické město | ~150 000 | Metropole, div světa           |
 
 ## Typ osady
 
@@ -25,9 +25,6 @@ Osady se liší podle druhu obyvatel:
 | Typ | Popis |
 |-----|-------|
 | human | Lidská osada - nejběžnější typ |
-| elven | Elfí osada - preferují lesy |
-| dwarven | Trpasličí osada - preferují hory |
-| orcish | Orčí osada - kočovníci, stepi |
 
 *Poznámka: V aktuální verzi je implementován pouze typ `human`.*
 
