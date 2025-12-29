@@ -8,13 +8,14 @@ Doména je organizace, která ovládá území, má vlastní zájmy a provádí 
 
 Ovládají konkrétní území na mapě.
 
-| Typ | Popis | Typický rozsah |
-|-----|-------|----------------|
-| Panství | Základní šlechtické území | 1-5 hexů |
-| Hrabství | Střední šlechtické území | 5-20 hexů |
-| Vévodství | Velké šlechtické území | 20-50 hexů |
-| Království | Suverénní stát | 50-200 hexů |
-| Císařství | Nadstátní útvar | 200+ hexů |
+| Typ        | Popis                                                                          | Typický rozsah           |
+|------------|--------------------------------------------------------------------------------|--------------------------|
+| Zemanství  | Území nižšího šlechtice bez významného centra - bývá často menší než Baronství | 1-15 hexů                |
+| Baronství  | Území nižšího šlechtice s významným centrem                                    | 1-15 hexů                |
+| Hrabství   | Území střední šlechty                                                          | 15-50 hexů               |
+| Vévodství  | Území vyšší šlechty                                                            | 50-200 hexů              |
+| Království | Suverénní stát                                                                 |              |
+| Císařství  | Nadstátní útvar                                                                | Obsahuje více království |
 
 ### Neteritoriální domény
 
