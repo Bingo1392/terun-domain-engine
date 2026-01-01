@@ -6,15 +6,14 @@ Postavy jsou jednotlivci, kteří vedou domény, slouží jako rádci, velitelé
 
 Každá postava má 7 základních atributů na škále 0-10:
 
-| Atribut      | Popis                        | Vliv na doménu       |
-|--------------|------------------------------|----------------------|
-| Správcovství | Organizační schopnosti       | Daně, efektivita     |
-| Diplomacie   | Sociální schopnosti          | Vztahy, smlouvy      |
-| Obchod       | Obchodní dovednosti          | Zisk z obchodu       |
-| Vojsko       | Vojenské schopnosti          | Bojová síla, taktika |
-| Špehování    | Tajné operace                | Špionáž, vraždy      |
-| Magie        | Výzkum magie a její aplikace | Magické účinky       |
-| Víra         | Náboženská oddanost          | Legitimita, víra     |
+| Atribut      | Popis                        | Vliv na doménu           |
+|--------------|------------------------------|--------------------------|
+| Správcovství | Organizační schopnosti       | Daně, efektivita, obchod |
+| Diplomacie   | Sociální schopnosti          | Vztahy, smlouvy          |
+| Vojsko       | Vojenské schopnosti          | Bojová síla, taktika     |
+| Špehování    | Tajné operace                | Špionáž, vraždy          |
+| Magie        | Výzkum magie a její aplikace | Magické účinky           |
+| Víra         | Náboženská oddanost          | Legitimita, víra         |
 
 ### Generování atributů
 
@@ -29,15 +28,15 @@ Modifikátory:
 
 ### Věkové kategorie
 
-| Věk   | Kategorie | Efekt                        |
-|-------|-----------|------------------------------|
-| 0-5   | Nemluvně | Nemůže vládnout              |
-| 6-15  | Dítě | Regentství, vzdělávání       |
-| 16-20 | Mladík | -1 všechny atributy          |
-| 21-40 | Dospělý | Plná síla                    |
-| 41-60 | Zralý | +1 správa, učenost           |
-| 61-70 | Starý | -1 válečnictví               |
-| 71+   | Kmet | -2 válečnictví, riziko smrti |
+| Věk   | Kategorie | Efekt                              |
+|-------|-----------|------------------------------------|
+| 0-5   | Nemluvně  | Nemůže vládnout                    |
+| 6-15  | Dítě      | Regentství, vzdělávání             |
+| 16-20 | Mladík    | -1 všechny atributy                |
+| 21-40 | Dospělý   | Plná síla                          |
+| 41-60 | Zralý     | +1 Správcovství, +1 Magie, +1 Víra |
+| 61-70 | Starý     | -1 Vojsko                          |
+| 71+   | Kmet      | -2 Vojsko                          |
 
 ## Vlastnosti (Traits)
 
@@ -47,15 +46,22 @@ Vlastnosti definují charakter postavy a ovlivňují její schopnosti.
 
 K získání vlastností ze vzdělání je nutné nákladné vzdělání od osobního učitele či na univerzitě.
 
-| Vlastnost | Efekt          |
-|-----------|----------------|
-| Správce   | +2 správa      |
-| Diplomat  | +2 diplomacie  |
-| Obchodník | +2 správa      |
-| Stratég   | +2 válečnictví |
-| Spiklenec | +2 intriky     |
-| Mág       | +2 magie       |
-| Teolog    | +2 zbožnost    |
+| Vlastnost | Efekt        |
+|-----------|--------------|
+| Správce   | Správcovství |
+| Diplomat  | Diplomacie   |
+| Stratég   | Vojsko       | 
+| Spiklenec | Špehování    |
+| Mág       | Magie        |
+| Teolog    | Víra         |
+
+Úroveň vzdělání
+
+| Úroveň                   | Velikost bonusu |
+|--------------------------|-----------------|
+| Osobní učitel            | +1              |
+| Vzdělání na univerzitě   | +2              | 
+| Světoznámý osobní učitel | +3              |
 
 ### Atributy postavy (platí pro aplikaci pravidel Svitky Hrdinů)
 
@@ -69,28 +75,34 @@ Každý z atributů postavy ovlivňuje základní atributy dle výše atributu. 
 | 6               | +2                                 |
 | 7-10            | +3                                 |
 
-| Vlastnost  | Ovlivňuje základní atributy                   |
-|------------|-----------------------------------------------|
-| Nezdolnost | Vojsko                                        |
-| Hbitost    | Vojsko, Špehování                             |
-| Srdnatost  | Správcovství, Diplomacie, Obchod, Magie, Víra |
-| Důvtip     | Správcovství, Obchod, Magie, Víra             |
-| Lstivost   | Špehování, Diplomacie                         |
+| Vlastnost  | Ovlivňuje základní atributy           |
+|------------|---------------------------------------|
+| Nezdolnost | Vojsko                                |
+| Hbitost    | Vojsko, Špehování                     |
+| Srdnatost  | Správcovství, Diplomacie, Magie, Víra |
+| Důvtip     | Správcovství, Magie, Víra             |
+| Lstivost   | Špehování, Diplomacie                 |
 
 ### Osobnostní vlastnosti
 
-| Vlastnost    | Efekt                        | Protějšek  |
-|--------------|------------------------------|------------|
-| Statečný     | +2 Vojsko                    | Zbabělý    |
-| Čestný       | +1 Diplomacie, -1 Špehování  | Úskočný    |
-| Štědrý       | +vztahy ???, -zlato ???      | Lakomý     |
-| Spravedlivý  | +kontrola ???, +legitimita ??? | Tyranský   |
-| Trpělivý     | +obléhání ???, +1 Špehování  | Netrpělivý |
-| Pracovitý    | +1 Správcovství              | Líný       |
-| Pokorný      | +1 Víra, +vztahy vazalů ???  | Pyšný      |
-| Klidný       | +1 Diplomacie                | Prchlivý   |
-| Pevné zdraví | +1 ke všem atributům         | Nemocný    |
-| Hezký        | +1 Diplomacie                | Ošklivý    |
+| Vlastnost   | Efekt                          | Protějšek    |
+|-------------|--------------------------------|--------------|
+| Kompetentní | +1 ke všem atributům           | Budižkničemu |
+| Pracovitý   | +2 Správcovství                | Líný         |
+| Hezký       | +2 Diplomacie                  | Ošklivý      |
+| Statečný    | +2 Vojsko                      | Zbabělý      |
+| Mazaný      | +2 Špehování                   | Naivní       |
+| Mystik      | +2 Magie                       | Magofob      |
+| Zbožný      | +2 Víra                        | Kacíř        |
+| Štědrý      | +1 Diplomacie, -1 Správcovství | Lakomý       |
+| Pacifista   | +1 Diplomacie, -1 Vojsko       | Horkokrevný  |
+| Opatrný     | +1 Špehování, -1 Vojsko        | Zbrklý       |
+| Ateista     | +1 Magie, -1 Víra              | Inkvizitor   |
+| Čestný      | +1 Diplomacie, -1 Špehování    | Úskočný      |
+| Tvrdohlavý  | +1 Vojsko, -1 Magie            | Otevřený     |
+| Spravedlivý | +1 Víra, -1 Špehování          | Tyranský     |
+| Pořádný     | +1 Správcovství, -1 Špehování  | Chaotický    |
+| Pragmatický | +1 Správcovství, -1 Víra       | Idealistický |
 
 ## Vztahy mezi postavami
 

@@ -35,11 +35,12 @@ Každá doména má 7 základních atributů na škále 1-20. Tyto atributy se s
 
 ### Správcovství (Stewardship)
 
-Schopnost efektivně spravovat území a zdroje.
+Schopnost efektivně spravovat území a zdroje. Schopnost efektivně obchodovat a generovat bohatství.
 
 **Ovlivňuje:**
 - Výběr daní (+5% za bod nad 10)
-- Efektivitu produkce
+- Zisky z obchodu (+5% za bod nad 10)
+- Efektivitu produkce a kapacitu karavan
 - Údržbu infrastruktury
 - Růst osad
 
@@ -48,6 +49,9 @@ Schopnost efektivně spravovat území a zdroje.
 - Těžba zdrojů
 - Stavba budov
 - Správa zásobování
+- Provoz dílen
+- Karavany a obchodní lodě
+- Půjčování peněz
 
 ### Diplomacie (Diplomacy)
 
@@ -64,22 +68,6 @@ Schopnost vyjednávat a udržovat vztahy.
 - Uzavírání smluv
 - Budování vztahů
 - Královské sňatky
-
-### Obchod (Trade)
-
-Schopnost efektivně obchodovat a generovat bohatství.
-
-**Ovlivňuje:**
-- Zisky z obchodu (+5% za bod nad 10)
-- Dostupnost vzácného zboží
-- Kapacitu karavan
-- Obchodní kontakty
-
-**Akce:**
-- Provoz dílen
-- Karavany
-- Obchodní lodě
-- Půjčování peněz
 
 ### Vojsko (Military)
 
@@ -103,9 +91,9 @@ Schopnost získávat tajné informace a provádět skryté operace.
 
 **Ovlivňuje:**
 - Šanci na úspěch špionáže
-- Odhalení nepřátelských agentů
 - Efektivitu kontrašpionáže
 - Kvalitu informací
+- Přístup na černý trh
 
 **Akce:**
 - Odhalení tajemství
