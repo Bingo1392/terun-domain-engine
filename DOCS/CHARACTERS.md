@@ -1,128 +1,118 @@
 # Postavy
 
-Postavy jsou jednotlivci, kteří vedou domény, slouží jako rádci, velitelé nebo agenti. Systém postav je inspirován Crusader Kings 3.
+Postavy jsou jednotlivci, kteří vedou domény, slouží jako rádci, velitelé nebo agenti.
 
 ## Základní atributy
 
-Každá postava má 6 základních atributů na škále 0-20:
+Každá postava má 7 základních atributů na škále 0-10:
 
-| Atribut | Popis | Vliv na doménu |
-|---------|-------|----------------|
-| Diplomacie | Sociální schopnosti | Vztahy, smlouvy |
-| Válečnictví | Vojenské schopnosti | Bojová síla, taktika |
-| Správa | Organizační schopnosti | Daně, efektivita |
-| Intriky | Tajné operace | Špionáž, vraždy |
-| Učenost | Vzdělání a moudrost | Výzkum, magie |
-| Zbožnost | Náboženská oddanost | Legitimita, víra |
+| Atribut      | Popis                        | Vliv na doménu       |
+|--------------|------------------------------|----------------------|
+| Správcovství | Organizační schopnosti       | Daně, efektivita     |
+| Diplomacie   | Sociální schopnosti          | Vztahy, smlouvy      |
+| Obchod       | Obchodní dovednosti          | Zisk z obchodu       |
+| Vojsko       | Vojenské schopnosti          | Bojová síla, taktika |
+| Špehování    | Tajné operace                | Špionáž, vraždy      |
+| Magie        | Výzkum magie a její aplikace | Magické účinky       |
+| Víra         | Náboženská oddanost          | Legitimita, víra     |
 
 ### Generování atributů
 
-Základní hodnota: 5-10 (průměr)
+Základní hodnota: 2-5 (průměr)
 
 Modifikátory:
-- Vzdělání: +0 až +5
-- Vlastnosti: -3 až +3 za vlastnost
+- Vzdělání: +0 až +2
+- Vlastnosti: -1 až +1 za vlastnost
 - Věk: Zkušenost vs. úpadek
-- Rasa: Různé bonusy
+- Rasa
+- Povolání
 
 ### Věkové kategorie
 
-| Věk | Kategorie | Efekt |
-|-----|-----------|-------|
-| 0-5 | Nemluvně | Nemůže vládnout |
-| 6-15 | Dítě | Regentství, vzdělávání |
-| 16-20 | Mladík | -2 všechny atributy |
-| 21-40 | Dospělý | Plná síla |
-| 41-60 | Zralý | +1 správa, učenost |
-| 61-70 | Starý | -1 válečnictví |
-| 71+ | Kmet | -2 válečnictví, riziko smrti |
+| Věk   | Kategorie | Efekt                        |
+|-------|-----------|------------------------------|
+| 0-5   | Nemluvně | Nemůže vládnout              |
+| 6-15  | Dítě | Regentství, vzdělávání       |
+| 16-20 | Mladík | -1 všechny atributy          |
+| 21-40 | Dospělý | Plná síla                    |
+| 41-60 | Zralý | +1 správa, učenost           |
+| 61-70 | Starý | -1 válečnictví               |
+| 71+   | Kmet | -2 válečnictví, riziko smrti |
 
 ## Vlastnosti (Traits)
 
 Vlastnosti definují charakter postavy a ovlivňují její schopnosti.
 
-### Osobnostní vlastnosti
-
-| Vlastnost | Efekt | Protějšek |
-|-----------|-------|-----------|
-| Statečný | +2 válečnictví, +morálka | Zbabělý |
-| Čestný | +diplomacie, -intriky | Úskočný |
-| Štědrý | +vztahy, -zlato | Lakomý |
-| Spravedlivý | +kontrola, +legitimita | Tyranský |
-| Trpělivý | +obléhání, +intriky | Netrpělivý |
-| Pracovitý | +správa | Líný |
-| Cudný | +zbožnost | Vilný |
-| Střídmý | +zdraví | Obžerný |
-| Pokorný | +zbožnost, +vztahy vazalů | Pyšný |
-| Klidný | +diplomacie | Prchlivý |
-
 ### Vzdělávací vlastnosti
 
-| Vlastnost | Požadavek | Efekt |
-|-----------|-----------|-------|
-| Diplomat | Vysoká diplomacie | +3 diplomacie |
-| Stratég | Vysoké válečnictví | +3 válečnictví |
-| Správce | Vysoká správa | +3 správa |
-| Spiklenec | Vysoké intriky | +3 intriky |
-| Učenec | Vysoká učenost | +3 učenost |
-| Teolog | Vysoká zbožnost | +3 zbožnost |
+K získání vlastností ze vzdělání je nutné nákladné vzdělání od osobního učitele či na univerzitě.
 
-### Fyzické vlastnosti
+| Vlastnost | Efekt          |
+|-----------|----------------|
+| Správce   | +2 správa      |
+| Diplomat  | +2 diplomacie  |
+| Obchodník | +2 správa      |
+| Stratég   | +2 válečnictví |
+| Spiklenec | +2 intriky     |
+| Mág       | +2 magie       |
+| Teolog    | +2 zbožnost    |
 
-| Vlastnost | Efekt |
-|-----------|-------|
-| Silný | +2 válečnictví, +zdraví |
-| Hezký/Krásná | +2 diplomacie |
-| Génius | +5 učenost |
-| Rychlý | +2 intriky, +1 válečnictví |
-| Obří postava | +3 válečnictví, -1 intriky |
+### Atributy postavy (platí pro aplikaci pravidel Svitky Hrdinů)
 
-### Negativní vlastnosti
+Každý z atributů postavy ovlivňuje základní atributy dle výše atributu. Atributy postavy se pohybují na škále 1-10 (stejně jako základní atributy).
 
-| Vlastnost | Efekt | Získání |
-|-----------|-------|---------|
-| Chromý | -2 válečnictví | Zranění |
-| Slepý | -4 válečnictví, +2 intriky | Nemoc, zranění |
-| Hluchý | -2 diplomacie | Věk |
-| Nemocný | -všechny atributy | Nemoc |
-| Šílený | Nepředvídatelné chování | Události, stres |
-| Posedlý | +intriky, -vztahy | Okultismus |
-| Stigmatizovaný | -diplomacie, -vztahy | Skandál |
+| Atribut postavy | Bonus/Postih k základním atributům |
+|-----------------|------------------------------------|
+| 1-3             | -1                                 |
+| 4               | 0                                  |
+| 5               | +1                                 |
+| 6               | +2                                 |
+| 7-10            | +3                                 |
 
-### Životní styl
+| Vlastnost  | Ovlivňuje základní atributy                   |
+|------------|-----------------------------------------------|
+| Nezdolnost | Vojsko                                        |
+| Hbitost    | Vojsko, Špehování                             |
+| Srdnatost  | Správcovství, Diplomacie, Obchod, Magie, Víra |
+| Důvtip     | Správcovství, Obchod, Magie, Víra             |
+| Lstivost   | Špehování, Diplomacie                         |
 
-Postava si může zvolit životní styl, který poskytuje bonusy:
+### Osobnostní vlastnosti
 
-| Životní styl | Bonus | Speciální schopnosti |
-|--------------|-------|---------------------|
-| Diplomat | +2 diplomacie | Sňatková aliance |
-| Válečník | +2 válečnictví | Osobní souboj |
-| Správce | +2 správa | Efektivní daně |
-| Intrikán | +2 intriky | Síť informátorů |
-| Učenec | +2 učenost | Výzkum |
-| Mnich/Mniška | +2 zbožnost | Božská přízeň |
+| Vlastnost    | Efekt                        | Protějšek  |
+|--------------|------------------------------|------------|
+| Statečný     | +2 Vojsko                    | Zbabělý    |
+| Čestný       | +1 Diplomacie, -1 Špehování  | Úskočný    |
+| Štědrý       | +vztahy ???, -zlato ???      | Lakomý     |
+| Spravedlivý  | +kontrola ???, +legitimita ??? | Tyranský   |
+| Trpělivý     | +obléhání ???, +1 Špehování  | Netrpělivý |
+| Pracovitý    | +1 Správcovství              | Líný       |
+| Pokorný      | +1 Víra, +vztahy vazalů ???  | Pyšný      |
+| Klidný       | +1 Diplomacie                | Prchlivý   |
+| Pevné zdraví | +1 ke všem atributům         | Nemocný    |
+| Hezký        | +1 Diplomacie                | Ošklivý    |
 
 ## Vztahy mezi postavami
 
 ### Rodinné vztahy
 
-| Vztah | Modifikátor názoru |
-|-------|-------------------|
-| Rodič | +20 |
-| Dítě | +25 |
-| Sourozenec | +15 |
-| Manžel/ka | +30 až -20 |
-| Vzdálená rodina | +5 |
+| Vztah           | Modifikátor názoru |
+|-----------------|--------------------|
+| Rodič           | +20                |
+| Dítě            | +25                |
+| Sourozenec      | +15                |
+| Manžel/ka       | +30 až -20         |
+| Vzdálená rodina | +5                 |
 
 ### Osobní vztahy
 
-| Vztah | Rozsah | Efekt |
-|-------|--------|-------|
-| Přítel | +30 až +50 | Loajalita, podpora |
-| Rival | -20 až -40 | Sabotáž, intriky |
-| Milenec | +40 | Skandál, nelegitimní děti |
-| Nepřítel | -50 až -100 | Vražedné úmysly |
-| Mentor | +20 | Vzdělávací bonus |
+| Vztah    | Rozsah      | Efekt                     |
+|----------|-------------|---------------------------|
+| Přítel   | +30 až +50  | Loajalita, podpora        |
+| Rival    | -20 až -40  | Sabotáž, intriky          |
+| Milenec  | +40         | Skandál, nelegitimní děti |
+| Nepřítel | -50 až -100 | Vražedné úmysly           |
+| Mentor   | +20         | Vzdělávací bonus          |
 
 ### Faktory názoru
 

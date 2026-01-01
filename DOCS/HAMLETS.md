@@ -42,7 +42,7 @@ Růst je hodnota od -100 do +100, která určuje směřování osady.
 ### Omezení růstu
 
 - Divočina nemůže klesnout pod 0 (minimum je wilderness)
-- Gigantické město nemůže růst nad 0 (maximum je gargantuan)
+- Gigantické město nemůže růst nad 0 (maximum je gargantuan_city)
 - Růst se může změnit maximálně o **10 bodů za rok**
 
 ### Faktory ovlivňující růst
@@ -113,19 +113,19 @@ Potřeba potravin závisí na velikosti osady. Potraviny mohou být:
 | poor_village | 100 kg (libovolné) |
 | village | 300 kg (libovolné) |
 | prosperous_village | 1 000 kg (libovolné) |
-| small_city | 2 500 kg obilí + 500 kg ryby/maso |
-| medium_city | 7 500 kg obilí + 2 500 kg ryby/maso |
-| large_city | 22 500 kg obilí + 6 000 kg maso + 1 500 kg ryby |
-| huge_city | 67 500 kg obilí + 18 000 kg maso + 4 500 kg ryby |
-| gargantuan_city | 225 000 kg obilí + 60 000 kg maso + 15 000 kg ryby |
+| small_city | 2 500 kg Obilí + 500 kg Ryby/Produkty z pastvin |
+| medium_city | 7 500 kg Obilí + 2 500 kg Ryby/Produkty z pastvin |
+| large_city | 22 500 kg Obilí + 6 000 kg Produkty z pastvin + 1 500 kg Ryby |
+| huge_city | 67 500 kg Obilí + 18 000 kg Produkty z pastvin + 4 500 kg Ryby |
+| gargantuan_city | 225 000 kg Obilí + 60 000 kg Produkty z pastvin + 15 000 kg Ryby |
 
 ### Pracovní síla
 
 Osady poskytují pracovní sílu (population), která může být využita pro:
 - Těžbu zdrojů
-- Zemědělství
-- Řemesla
 - Vojenskou službu
+
+Tato pracovní síla je rovna 20 % velikosti osady. Zbytek se stará o základní potřeby a fungování jednotlivých rodin. 
 
 | Velikost | Dostupná pracovní síla |
 |----------|----------------------|

@@ -6,7 +6,7 @@ Doména je organizace, která ovládá území, má vlastní zájmy a provádí 
 
 ### Teritoriální domény
 
-Ovládají konkrétní území na mapě.
+Ovládají konkrétní území na mapě. Území je rozděleno hexy, kde každý hex má 10 km v průměru.
 
 | Typ        | Popis                                                                          | Typický rozsah           |
 |------------|--------------------------------------------------------------------------------|--------------------------|
@@ -21,17 +21,17 @@ Ovládají konkrétní území na mapě.
 
 Působí napříč územími bez přímé kontroly nad hexy.
 
-| Typ | Popis | Primární atribut |
-|-----|-------|------------------|
-| Obchodní gilda | Kontroluje obchod | Obchod |
-| Náboženský řád | Šíří víru | Víra |
-| Magický cech | Studuje magii | Magie |
+| Typ                   | Popis | Primární atribut |
+|-----------------------|-------|------------------|
+| Obchodní cech         | Kontroluje obchod | Obchod |
+| Náboženský řád        | Šíří víru | Víra |
+| Magický cech          | Studuje magii | Magie |
 | Žoldnéřská společnost | Nabízí vojenské služby | Vojsko |
-| Špionážní síť | Sbírá informace | Špehování |
+| Špionážní síť         | Sbírá informace | Špehování |
 
 ## Atributy domény
 
-Každá doména má 7 základních atributů na škále 1-20:
+Každá doména má 7 základních atributů na škále 1-20. Tyto atributy se spočítají jako součet atributů vládce a jeho rádce.
 
 ### Správcovství (Stewardship)
 
