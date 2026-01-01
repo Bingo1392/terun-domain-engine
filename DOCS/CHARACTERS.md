@@ -46,14 +46,14 @@ Vlastnosti definují charakter postavy a ovlivňují její schopnosti.
 
 K získání vlastností ze vzdělání je nutné nákladné vzdělání od osobního učitele či na univerzitě.
 
-| Vlastnost | Efekt        |
-|-----------|--------------|
-| Správce   | Správcovství |
-| Diplomat  | Diplomacie   |
-| Stratég   | Vojsko       | 
-| Spiklenec | Špehování    |
-| Mág       | Magie        |
-| Teolog    | Víra         |
+| Vzdělání            | Efekt na atribut |
+|---------------------|------------------|
+| Správa majetku      | Správcovství     |
+| Diplomatické vztahy | Diplomacie       |
+| Vojenská taktika    | Vojsko           | 
+| Kontrarozvětka      | Špehování        |
+| Mágická umění       | Magie            |
+| Teologie            | Víra             |
 
 Úroveň vzdělání
 
@@ -85,26 +85,30 @@ Každý z atributů postavy ovlivňuje základní atributy dle výše atributu. 
 
 ### Osobnostní vlastnosti
 
-| Vlastnost   | Efekt                          | Protějšek    |
-|-------------|--------------------------------|--------------|
-| Kompetentní | +1 ke všem atributům           | Budižkničemu |
-| Pracovitý   | +2 Správcovství                | Líný         |
-| Hezký       | +2 Diplomacie                  | Ošklivý      |
-| Statečný    | +2 Vojsko                      | Zbabělý      |
-| Mazaný      | +2 Špehování                   | Naivní       |
-| Mystik      | +2 Magie                       | Magofob      |
-| Zbožný      | +2 Víra                        | Kacíř        |
-| Štědrý      | +1 Diplomacie, -1 Správcovství | Lakomý       |
-| Pacifista   | +1 Diplomacie, -1 Vojsko       | Horkokrevný  |
-| Opatrný     | +1 Špehování, -1 Vojsko        | Zbrklý       |
-| Ateista     | +1 Magie, -1 Víra              | Inkvizitor   |
-| Čestný      | +1 Diplomacie, -1 Špehování    | Úskočný      |
-| Tvrdohlavý  | +1 Vojsko, -1 Magie            | Otevřený     |
-| Spravedlivý | +1 Víra, -1 Špehování          | Tyranský     |
-| Pořádný     | +1 Správcovství, -1 Špehování  | Chaotický    |
-| Pragmatický | +1 Správcovství, -1 Víra       | Idealistický |
+Každý dostane 1-6 osobnostních vlastností. Je 50 % šance, že se bude jednat o protějšek osobnostní vlastnosti. Pokud se bude jednat o protějšek, je Efekt obrácený (Například Pracovitý dává +2 Správcovství a Líný dává -2 Správcovství).
+
+| Vlastnost          | Efekt                                        | Protějšek    |
+|--------------------|----------------------------------------------|--------------|
+| Kompetentní        | +1 ke všem atributům                         | Budižkničemu |
+| Pracovitý          | +2 Správcovství                              | Líný         |
+| Hezký              | +2 Diplomacie                                | Ošklivý      |
+| Statečný           | +2 Vojsko                                    | Zbabělý      |
+| Mazaný             | +2 Špehování                                 | Naivní       |
+| Mystik             | +2 Magie                                     | Magofob      |
+| Zbožný             | +2 Víra                                      | Kacíř        |
+| Štědrý             | +1 Diplomacie, -1 Správcovství               | Lakomý       |
+| Pacifista          | +1 Diplomacie, -1 Vojsko                     | Horkokrevný  |
+| Opatrný            | +1 Špehování, -1 Vojsko                      | Zbrklý       |
+| Ateista            | +1 Magie, -1 Víra                            | Inkvizitor   |
+| Čestný             | +1 Diplomacie, -1 Špehování, +10 k loajalitě | Úskočný      |
+| Tvrdohlavý         | +1 Vojsko, -1 Magie                          | Otevřený     |
+| Spravedlivý        | +1 Víra, -1 Špehování                        | Tyranský     |
+| Pořádný            | +1 Správcovství, -1 Špehování                | Chaotický    |
+| Pragmatický        | +1 Správcovství, -1 Víra                     | Idealistický |
 
 ## Vztahy mezi postavami
+
+Vztahy se definují škálou od nejhoršího vztahu -100 po nejlepší 100.
 
 ### Rodinné vztahy
 
@@ -113,184 +117,88 @@ Každý z atributů postavy ovlivňuje základní atributy dle výše atributu. 
 | Rodič           | +20                |
 | Dítě            | +25                |
 | Sourozenec      | +15                |
-| Manžel/ka       | +30 až -20         |
+| Manžel/ka       | +30                |
 | Vzdálená rodina | +5                 |
 
 ### Osobní vztahy
 
-| Vztah    | Rozsah      | Efekt                     |
+| Vztah    | Modifikátor | Efekt                     |
 |----------|-------------|---------------------------|
-| Přítel   | +30 až +50  | Loajalita, podpora        |
-| Rival    | -20 až -40  | Sabotáž, intriky          |
+| Přítel   | +30         | Loajalita, podpora        |
+| Rival    | -30         | Sabotáž, intriky          |
 | Milenec  | +40         | Skandál, nelegitimní děti |
-| Nepřítel | -50 až -100 | Vražedné úmysly           |
+| Nepřítel | -70         | Vražedné úmysly           |
 | Mentor   | +20         | Vzdělávací bonus          |
 
 ### Faktory názoru
 
-| Faktor | Modifikátor |
-|--------|-------------|
-| Stejná víra | +10 |
-| Jiná víra | -10 až -30 |
-| Stejná kultura | +5 |
-| Dar | +5 až +30 |
-| Urážka | -10 |
-| Zrada | -50 |
-| Pomsta (provedená) | +20 |
+| Faktor             | Modifikátor |
+|--------------------|-------------|
+| Stejná víra        | +10         |
+| Jiná víra          | -10         |
+| Nepřátelská víra   | -30         |
+| Stejná kultura     | +5          |
+| Malý dar           | +5          |
+| Střední dar        | +15         |
+| Velký dar          | +30         |
+| Urážka             | -10         |
+| Zrada              | -50         |
+| Pomsta (provedená) | +20         |
 
 ## Role postav
 
 ### Vládce
 
-Hlava domény. Atributy vládce přímo ovlivňují doménu.
-
-```
-bonus_domény = (atribut_vládce - 10) × 0.05
-```
+Hlava domény. Atributy vládce přímo ovlivňují atributy domény. Atribut domény je součtem atributů vládce a jeho rádců.
 
 ### Rádci
 
-Až 5 pozic rádců, každý poskytuje bonus podle svého atributu:
+Až 6 pozic rádců, každý poskytuje bonus podle svého atributu:
 
-| Pozice | Klíčový atribut | Efekt |
-|--------|-----------------|-------|
-| Kancléř | Diplomacie | +diplomacie domény |
-| Maršál | Válečnictví | +vojsko domény |
-| Správce | Správa | +správcovství domény |
-| Špeh | Intriky | +špehování domény |
-| Kaplan | Zbožnost | +víra domény |
+| Pozice    | Klíčový atribut |
+|-----------|-----------------|
+| Pokladník | Správcovství    |
+| Diplomat  | Diplomacie      |
+| Maršál    | Vojsko          |
+| Šepmistr  | Špehování       |
+| Mág       | Magie           |
+| Kaplan    | Víra            |
 
-```
-bonus_rádce = (atribut_rádce × 0.3)
-```
-
-### Velitelé
-
-Vedou armády v bitvě.
-
-```
-velitelský_bonus = (válečnictví × 0.02) + speciální_schopnosti
-```
-
-### Agenti
-
-Provádějí tajné operace.
-
-```
-šance_na_úspěch = základní_šance × (1 + intriky × 0.05)
-```
-
-### Šampioni
-
-Osobní bojovníci pro souboje a turnaje.
+Atributy rádců přímo ovlivňují atributy domény. Jedná se o druhou složku v celkovém součtu atributů domény.
 
 ## Události postav
 
 ### Životní události
 
-| Událost | Trigger | Efekt |
-|---------|---------|-------|
-| Narození | Těhotenství | Nová postava |
-| Dosažení dospělosti | Věk 16 | Plná práva |
-| Sňatek | Nabídka/souhlas | Aliance, děti |
-| Smrt | Věk, nemoc, bitva | Nástupnictví |
+| Událost             | Trigger           | Efekt         |
+|---------------------|-------------------|---------------|
+| Narození            | Těhotenství       | Nová postava  |
+| Dosažení dospělosti | Věk 16            | Plná práva    |
+| Sňatek              | Nabídka/souhlas   | Aliance, děti |
+| Smrt                | Věk, nemoc, bitva | Nástupnictví  |
 
 ### Náhodné události
 
-| Událost | Pravděpodobnost | Efekt |
-|---------|-----------------|-------|
-| Nemoc | Různá | Postihy, možná smrt |
-| Zranění | Bitva, turnaj | Trvalé postihy |
-| Osvícení | Nízká | +učenost, nová vlastnost |
-| Skandál | Střední | -prestiž, -vztahy |
-| Zázrak | Velmi nízká | +zbožnost, +legitimita |
+| Událost   | Pravděpodobnost   | Efekt                                |
+|-----------|-------------------|--------------------------------------|
+| Nemoc     | Různá             | Postih -1 ke všem atributům          |
+| Zranění   | Bitva, turnaj     | Trvalý postih -2 Vojsko              |
+| Osvícení  | Nízká             | Trvalý bonus +1 k náhodnému atributu |
+| Skandál   | Střední           | Postih -5 ke všem vstahům            |
 
-### Stres
+## Loajalita
 
-Stres se hromadí při negativních událostech:
-
-| Úroveň stresu | Efekt |
-|---------------|-------|
-| 0-25 | Žádný |
-| 26-50 | -1 všechny atributy |
-| 51-75 | -2 všechny atributy, riziko šílenství |
-| 76-100 | Mentální zhroucení |
-
-**Zdroje stresu:**
-- Smrt blízkého: +30
-- Prohra v bitvě: +10
-- Zrada: +20
-- Neúspěch intriky: +15
-
-**Zmírnění stresu:**
-- Hostina: -10
-- Lov: -5
-- Modlitba: -5
-- Intriky (pro intrikány): -10
-
-## Dynastie
-
-### Prestiž dynastie
-
-Akumuluje se přes generace:
-
-```
-prestiž_dynastie += prestiž_člena × 0.1 při smrti
-```
-
-### Dědičné vlastnosti
-
-Některé vlastnosti se mohou dědit:
-
-| Vlastnost | Šance dědičnosti |
-|-----------|------------------|
-| Génius | 15% |
-| Silný | 25% |
-| Hezký | 30% |
-| Šílenství | 10% |
-| Nemoc (genetická) | 20% |
-
-### Příbuzenství
-
-Příliš blízké příbuzenství zvyšuje šanci na negativní dědičné vlastnosti:
-
-| Vztah | Penalizace |
-|-------|------------|
-| Bratranci | +5% negativní vlastnost |
-| Strýc/Neteř | +15% negativní vlastnost |
-| Sourozenci | +40% negativní vlastnost |
-
-### Legitimita potomků
-
-| Status | Nástupnická práva | Názor ostatních |
-|--------|-------------------|-----------------|
-| Legitimní | Plná | Normální |
-| Legitimizovaný | Snížená | -10 |
-| Nelegitimní | Žádná | -30 |
-
-## Nábor postav
-
-### Zdroje postav
-
-| Zdroj | Kvalita | Cena |
-|-------|---------|------|
-| Místní šlechta | Střední | Vazalství |
-| Dobrodruzi | Různá | Zlato |
-| Cizinci | Různá | Zlato + vztahy |
-| Vzdělávací instituce | Vysoká | Čas + zlato |
-
-### Loajalita
-
-| Úroveň | Chování |
-|--------|---------|
-| Fanatická (90+) | Zemře za vládce |
-| Vysoká (70-89) | Spolehlivá |
-| Normální (40-69) | Běžná služba |
-| Nízká (20-39) | Nespokojenost |
-| Nebezpečná (0-19) | Možná zrada |
+| Úroveň            | Chování         |
+|-------------------|-----------------|
+| Fanatická (90+)   | Zemře za vládce |
+| Vysoká (70-89)    | Spolehlivá      |
+| Normální (40-69)  | Běžná služba    |
+| Nízká (20-39)     | Nespokojenost   |
+| Nebezpečná (0-19) | Možná zrada     |
 
 **Faktory loajality:**
 - Plat: +10 až -20
 - Vztah s vládcem: +/- názor
-- Vlastnosti (čestný): +10
-- Ambice vs. pozice: +/- 20
+- Vlastnosti (Čestný/Úskočný): +10/-10
+
+> TODO: Doplnit Platy k jednotlivým pozicím v rámci domény.

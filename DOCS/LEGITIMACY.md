@@ -47,6 +47,16 @@ Systém legitimity určuje právoplatnost vlády, dědické nároky a důvody k 
 
 ---
 
+## Legitimita potomků
+
+| Status         | Nástupnická práva | Názor ostatních |
+|----------------|-------------------|-----------------|
+| Legitimní      | Plná              | Normální        |
+| Legitimizovaný | Snížená           | -10             |
+| Nelegitimní    | Žádná             | -30             |
+
+---
+
 ## Tituly a hodnosti
 
 ### Hierarchie titulů
